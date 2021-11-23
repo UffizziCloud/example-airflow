@@ -42,7 +42,7 @@ services:
     << : *airflow
     user: "airflow:airflow"
     command: ["/usr/local/bin/start-local-webserver.sh"]
-    ports: ["0.0.0.0:8080"]
+    ports: ["8080:8080"]
     healthcheck:
       test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
       interval: 10s
@@ -66,7 +66,7 @@ services:
       timeout: 10s
       retries: 2
     volumes:
-      - $KUBE_HOME:/tmp/.kube
+      #- /root:/tmp/.kube
       #- $TEST_AIRFLOW_DAGS_PATH:/opt/airflow/dags:ro
       - logs:/opt/airflow/logs
     depends_on:
