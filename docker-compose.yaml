@@ -91,3 +91,7 @@ services:
 
 volumes:
   logs:
+
+ingress:
+  service: airflow-webserver
+  port: 8080
