@@ -37,7 +37,6 @@ services:
       TEST_AIRFLOW_USER: "username"
       TEST_AIRFLOW_PASSWORD: "password"
     user: "airflow:airflow"
-    command: ["/usr/local/bin/start-local-webserver.sh"]
     ports: ["8080:8080"]
     healthcheck:
       test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
@@ -74,7 +73,6 @@ services:
       TEST_AIRFLOW_USER: "username"
       TEST_AIRFLOW_PASSWORD: "password"
     user: "airflow:airflow"
-    command: ["/usr/local/bin/start-local-scheduler.sh"]
     restart: always
     healthcheck:
       test: ["CMD", "python3", "/opt/airflow/liveness_check.py"]
